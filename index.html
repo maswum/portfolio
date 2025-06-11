@@ -29,623 +29,316 @@
     <link href="css/style.css" rel="stylesheet" />
   </head>
 
-  <body data-spy="scroll" data-target=".navbar" data-offset="51">
-    <!-- Navbar Start -->
-    <nav
-      class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5"
-    >
-      <a href="index.html" class="navbar-brand ml-lg-3"> </a>
-      <button
-        type="button"
-        class="navbar-toggler"
-        data-toggle="collapse"
-        data-target="#navbarCollapse"
-      >
-        <span class="navbar-toggler-icon"></span>
+  <body>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+      <button class="mobile-nav-toggle" onclick="toggleMobileNav()">
+        <span>☰</span>
+        <span>Menu</span>
       </button>
-      <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
-        <div class="navbar-nav m-auto py-0">
-          <a href="#home" class="nav-item nav-link active">Home</a>
-          <a href="#about" class="nav-item nav-link">About</a>
-          <a href="#qualification" class="nav-item nav-link">Quality</a>
-          <a href="#skill" class="nav-item nav-link">Skill</a>
-          <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-        </div>
-      </div>
-    </nav>
-    <!-- Navbar End -->
-
-    <!-- Video Modal Start -->
-    <div
-      class="modal fade"
-      id="videoModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
+      <div class="mobile-dropdown" id="mobileDropdown">
+        <ul class="mobile-nav-menu">
+          <li class="mobile-nav-item">
+            <a
+              href="#"
+              class="mobile-nav-link active"
+              onclick="showSection('about')"
             >
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <!-- 16:9 aspect ratio -->
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe
-                class="embed-responsive-item"
-                src=""
-                id="video"
-                allowscriptaccess="always"
-                allow="autoplay"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Video Modal End -->
-
-    <!-- Header Start -->
-    <div
-      class="container-fluid bg-primary d-flex align-items-center mb-5 py-5"
-      id="home"
-      style="min-height: 100vh"
-    >
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
-            <img
-              class="img-fluid w-100 rounded-circle shadow-sm"
-              src="img/profile.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-lg-7 text-center text-lg-left">
-            <h3 class="text-white font-weight-normal mb-3">I'm</h3>
-            <h1
-              class="display-3 text-uppercase text-primary mb-2"
-              style="-webkit-text-stroke: 2px #ffffff"
+              <span class="mobile-nav-icon">👤</span>
+              About
+            </a>
+          </li>
+          <li class="mobile-nav-item">
+            <a
+              href="#"
+              class="mobile-nav-link"
+              onclick="showSection('projects')"
             >
-              Monica Talabong
-            </h1>
-            <h1
-              class="typed-text-output d-inline font-weight-lighter text-white"
-            ></h1>
-            <div class="typed-text d-none">
-              Web Developer, Back End Developer, Mobile Developer
-            </div>
-            <div
-              class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5"
-            ></div>
-          </div>
-        </div>
+              <span class="mobile-nav-icon">💼</span>
+              Projects
+            </a>
+          </li>
+          <li class="mobile-nav-item">
+            <a
+              href="#"
+              class="mobile-nav-link"
+              onclick="showSection('experience')"
+            >
+              <span class="mobile-nav-icon">📈</span>
+              Experience
+            </a>
+          </li>
+          <li class="mobile-nav-item">
+            <a
+              href="#"
+              class="mobile-nav-link"
+              onclick="showSection('contact')"
+            >
+              <span class="mobile-nav-icon">📧</span>
+              Contact
+            </a>
+          </li>
+        </ul>
       </div>
-    </div>
-    <!-- Header End -->
+    </header>
 
-    <!-- About Start -->
-    <div class="container-fluid py-5" id="about">
-      <div class="container">
-        <div
-          class="position-relative d-flex align-items-center justify-content-center"
-        >
-          <h1
-            class="display-1 text-uppercase text-white"
-            style="-webkit-text-stroke: 1px #dee2e6"
-          >
-            About
-          </h1>
-          <h1 class="position-absolute text-uppercase text-primary">
-            About Me
-          </h1>
-        </div>
-        <div class="row align-items-center">
-          <div class="col-lg-5 pb-4 pb-lg-0">
-            <img class="img-fluid rounded w-100" src="img/profile.jpg" alt="" />
+    <div class="container">
+      <!-- Desktop Sidebar -->
+      <nav class="sidebar" id="sidebar">
+        <div class="profile-section">
+          <div class="profile-image">
+            <img src="img/profile.jpg" alt="Profile Image" />
           </div>
-          <div class="col-lg-7">
-            <h3 class="mb-4">Mobile & Web Developer</h3>
-            <p>
-              I am a dedicated and innovative young professional, an Information
-              Technology graduate with an exemplary academic record and a
-              passion to progress within the I.T. industry. As a web and mobile
-              developer, I am constantly seeking to enhance my skills and
-              knowledge to contribute effectively to the tech community.
+          <h2 class="profile-name">Monica Talabong</h2>
+          <p class="profile-title">Full Stack Developer</p>
+        </div>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" onclick="showSection('about')">
+              <span class="nav-icon">👤</span>
+              About
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="showSection('projects')">
+              <span class="nav-icon">💼</span>
+              Projects
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="showSection('experience')">
+              <span class="nav-icon">📈</span>
+              Experience
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="showSection('contact')">
+              <span class="nav-icon">📧</span>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="main-content">
+        <!-- About Section -->
+        <section id="about" class="content-section active">
+          <h1 class="section-title">About Me</h1>
+          <p class="section-subtitle">
+            Passionate developer creating innovative solutions
+          </p>
+
+          <div class="card">
+            <h3 class="card-title">Hello, I'm Monica!</h3>
+            <p class="card-description">
+              I'm a passionate full-stack developer with a love for creating
+              beautiful, functional, and user-friendly applications. With
+              expertise in modern web technologies, I enjoy turning complex
+              problems into simple, elegant solutions.
             </p>
-            <div class="row mb-3">
-              <div class="col-sm-6 py-2">
-                <h6>
-                  Name: <span class="text-secondary">Monica Talabong</span>
-                </h6>
-              </div>
-              <div class="col-sm-6 py-2">
-                <h6>
-                  Course:
-                  <span class="text-secondary">Information Technology</span>
-                </h6>
-              </div>
-              <div class="col-sm-6 py-2">
-                <h6>
-                  Phone: <span class="text-secondary">+639944879690</span>
-                </h6>
-              </div>
-              <div class="col-sm-6 py-2">
-                <h6>
-                  Email:
-                  <span class="text-secondary">nyxtalabong@gmail.com</span>
-                </h6>
-              </div>
-              <div class="col-sm-6 py-2">
-                <h6>
-                  Address:
-                  <span class="text-secondary">Dela Paz, Biñan, Laguna</span>
-                </h6>
-              </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">What I Do</h3>
+            <p class="card-description">
+              I specialize in building responsive web applications, crafting
+              intuitive user interfaces, and developing robust backend systems.
+              My goal is to create digital experiences that not only look great
+              but also provide real value to users.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Skills</h3>
+            <div class="skills-grid">
+              <div class="skill-tag">HTML/CSS</div>
+              <div class="skill-tag">PHP</div>
+              <div class="skill-tag">Java</div>
+              <div class="skill-tag">Dart</div>
+              <div class="skill-tag">React</div>
+              <div class="skill-tag">Node.js</div>
+              <div class="skill-tag">MongoDB</div>
+              <div class="skill-tag">MySQL</div>
+              <div class="skill-tag">Firebase</div>
+              <div class="skill-tag">Google Cloud</div>
+              <div class="skill-tag">Flutter</div>
+              <div class="skill-tag">CodeIgniter</div>
+              <div class="skill-tag">Laravel</div>
+              <div class="skill-tag">Git</div>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="content-section">
+          <h1 class="section-title">Projects</h1>
+          <p class="section-subtitle">A showcase of my recent work</p>
+
+          <div class="card">
+            <h3 class="card-title">E-Commerce Platform</h3>
+            <p class="card-description">
+              A full-featured e-commerce platform built with React, Node.js, and
+              MongoDB. Features include user authentication, payment processing,
+              inventory management, and responsive design.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Task Management App</h3>
+            <p class="card-description">
+              A collaborative task management application with real-time
+              updates, drag-and-drop functionality, and team collaboration
+              features. Built using React, Socket.io, and Express.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Weather Dashboard</h3>
+            <p class="card-description">
+              An interactive weather dashboard that provides current conditions
+              and forecasts with beautiful visualizations. Integrates multiple
+              weather APIs and features location-based services.
+            </p>
+          </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="content-section">
+          <h1 class="section-title">Experience</h1>
+          <p class="section-subtitle">My professional journey</p>
+
+          <div class="card">
+            <h3 class="card-title">Senior Full Stack Developer</h3>
+            <p class="card-description">
+              <strong>Tech Company Inc. (2022 - Present)</strong><br />
+              Lead development of web applications, mentor junior developers,
+              and collaborate with cross-functional teams to deliver
+              high-quality software solutions.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Frontend Developer</h3>
+            <p class="card-description">
+              <strong>Digital Agency (2020 - 2022)</strong><br />
+              Developed responsive websites and web applications for various
+              clients, focusing on user experience and modern design principles.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Junior Web Developer</h3>
+            <p class="card-description">
+              <strong>Startup Co. (2019 - 2020)</strong><br />
+              Built and maintained company websites, learned modern web
+              development practices, and contributed to various client projects.
+            </p>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+          <h1 class="section-title">Contact</h1>
+          <p class="section-subtitle">Let's connect and work together</p>
+
+          <div class="contact-info">
+            <div class="contact-card">
+              <div class="contact-icon">📧</div>
+              <h3>Email</h3>
+              <p>your.email@example.com</p>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">📱</div>
+              <h3>Phone</h3>
+              <p>+1 (555) 123-4567</p>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">🌐</div>
+              <h3>LinkedIn</h3>
+              <p>linkedin.com/in/yourname</p>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">💻</div>
+              <h3>GitHub</h3>
+              <p>github.com/yourusername</p>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-    <!-- About End -->
 
-    <!-- Qualification Start -->
-    <div class="container-fluid py-5" id="qualification">
-      <div class="container">
-        <div
-          class="position-relative d-flex align-items-center justify-content-center"
-        >
-          <h1
-            class="display-1 text-uppercase text-white"
-            style="-webkit-text-stroke: 1px #dee2e6"
-          >
-            Quality
-          </h1>
-          <h1 class="position-absolute text-uppercase text-primary">
-            Education & Expericence
-          </h1>
-        </div>
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <h3 class="mb-4">My Education</h3>
-            <div class="border-left border-primary pt-2 pl-4 ml-2">
-              <div class="position-relative mb-4">
-                <i
-                  class="far fa-dot-circle text-primary position-absolute"
-                  style="top: 2px; left: -32px"
-                ></i>
-                <h5 class="font-weight-bold mb-1">
-                  Bachelor in Science Major in Information Technology
-                </h5>
-                <p class="mb-2">
-                  <strong>San Pedro College of Business Administration</strong>
-                  | <small>2019 - 2023</small>
-                </p>
-                <p>Graduated with Academic Distinction</p>
-              </div>
-              <div class="position-relative mb-4">
-                <i
-                  class="far fa-dot-circle text-primary position-absolute"
-                  style="top: 2px; left: -32px"
-                ></i>
-                <h5 class="font-weight-bold mb-1">
-                  Information and Communication Technology
-                </h5>
-                <p class="mb-2">
-                  <strong>San Pedro College of Business Administration</strong>
-                  | <small>2017 - 2019</small>
-                </p>
-                <p>Graduated with Honors</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <h3 class="mb-4">My Expericence</h3>
-            <div class="border-left border-primary pt-2 pl-4 ml-2">
-              <div class="position-relative mb-4">
-                <i
-                  class="far fa-dot-circle text-primary position-absolute"
-                  style="top: 2px; left: -32px"
-                ></i>
-                <h5 class="font-weight-bold mb-1">Registrar Staff</h5>
-                <p class="mb-2">
-                  <strong>Philippine Merchant Marine School</strong> |
-                  <small>Sept 2023 - June 2024</small>
-                </p>
-                <p>
-                  Manage student records, ensuring compliance with academic
-                  policies, coordinating course registration, maintaining
-                  transcripts, and providing administrative support to students
-                  and faculty.
-                </p>
-              </div>
-              <div class="position-relative mb-4">
-                <i
-                  class="far fa-dot-circle text-primary position-absolute"
-                  style="top: 2px; left: -32px"
-                ></i>
-                <h5 class="font-weight-bold mb-1">IT Staff (Internship)</h5>
-                <p class="mb-2">
-                  <strong>Office of the City Prosecutor</strong> |
-                  <small>May 2023</small>
-                </p>
-                <p>
-                  Developed a web-based system with PHP and MySQL for efficient
-                  record storage and retrieval. Transitioned office from manual
-                  to digital record-keeping. Enabled quick searches for case
-                  records related to prosecution, hearings, and trials.
-                </p>
-              </div>
-              <div class="position-relative mb-4">
-                <i
-                  class="far fa-dot-circle text-primary position-absolute"
-                  style="top: 2px; left: -32px"
-                ></i>
-                <h5 class="font-weight-bold mb-1">Compliance Assistant</h5>
-                <p class="mb-2">
-                  <strong>Bureau of Internal Revenue</strong> |
-                  <small>May 2019</small>
-                </p>
-                <p>
-                  Reviewed and verified tax documents. Supported tax report
-                  preparation and filing. Conducted data entry and maintained
-                  records. Provided administrative support to the compliance
-                  team.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Qualification End -->
+    <script>
+      function showSection(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll(".content-section");
+        sections.forEach((section) => {
+          section.classList.remove("active");
+        });
 
-    <!-- Skill Start -->
-    <div class="container-fluid py-5" id="skill">
-      <div class="container">
-        <div
-          class="position-relative d-flex align-items-center justify-content-center"
-        >
-          <h1
-            class="display-1 text-uppercase text-white"
-            style="-webkit-text-stroke: 1px #dee2e6"
-          >
-            Skills
-          </h1>
-          <h1 class="position-absolute text-uppercase text-primary">
-            My Skills
-          </h1>
-        </div>
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <div class="skill mb-4">
-              <div class="d-flex justify-content-between">
-                <h6 class="font-weight-bold">HTML</h6>
-                <h6 class="font-weight-bold">95%</h6>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-primary"
-                  role="progressbar"
-                  aria-valuenow="95"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </div>
-            <div class="skill mb-4">
-              <div class="d-flex justify-content-between">
-                <h6 class="font-weight-bold">CSS</h6>
-                <h6 class="font-weight-bold">70%</h6>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-warning"
-                  role="progressbar"
-                  aria-valuenow="70"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </div>
-            <div class="skill mb-4">
-              <div class="d-flex justify-content-between">
-                <h6 class="font-weight-bold">PHP</h6>
-                <h6 class="font-weight-bold">90%</h6>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-danger"
-                  role="progressbar"
-                  aria-valuenow="90"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </div>
-            <div class="skill mb-4">
-              <div class="d-flex justify-content-between">
-                <h6 class="font-weight-bold">Javascript</h6>
-                <h6 class="font-weight-bold">75%</h6>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-danger"
-                  role="progressbar"
-                  aria-valuenow="75"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="skill mb-4">
-              <div class="d-flex justify-content-between">
-                <h6 class="font-weight-bold">SQL</h6>
-                <h6 class="font-weight-bold">90%</h6>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-info"
-                  role="progressbar"
-                  aria-valuenow="90"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </div>
-            <div class="skill mb-4">
-              <div class="d-flex justify-content-between">
-                <h6 class="font-weight-bold">Java</h6>
-                <h6 class="font-weight-bold">90%</h6>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-dark"
-                  role="progressbar"
-                  aria-valuenow="90"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </div>
-            <div class="skill mb-4">
-              <div class="d-flex justify-content-between">
-                <h6 class="font-weight-bold">.NET</h6>
-                <h6 class="font-weight-bold">70%</h6>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-info"
-                  role="progressbar"
-                  aria-valuenow="70"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Skill End -->
-    <!-- Portfolio Start -->
-    <div class="container-fluid pt-5 pb-3" id="portfolio">
-      <div class="container">
-        <div
-          class="position-relative d-flex align-items-center justify-content-center"
-        >
-          <h1
-            class="display-1 text-uppercase text-white"
-            style="-webkit-text-stroke: 1px #dee2e6"
-          >
-            Gallery
-          </h1>
-          <h1 class="position-absolute text-uppercase text-primary">
-            My Portfolio
-          </h1>
-        </div>
-        <div class="row portfolio-container">
-          <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-            <div class="position-relative overflow-hidden mb-2">
-              <img
-                class="img-fluid rounded w-100"
-                src="img/portfolio-1.jpg"
-                alt=""
-              />
-              <div
-                class="portfolio-btn bg-primary d-flex align-items-center justify-content-center"
-              >
-                <a href="img/portfolio-1.jpg" data-lightbox="portfolio">
-                  <i class="fa fa-plus text-white" style="font-size: 60px"></i>
-                </a>
-              </div>
-            </div>
-            <div class="portfolio-description bg-white p-3">
-              <h5>Chat-app</h5>
-              <p>
-                This project is a real-time chat application built with React.js
-                on the front end and Google Firebase on the backend. It includes
-                user authentication, real-time communications, and a responsive
-                UI. Firebase Authentication manages user sign-ins and sign-ups,
-                while Firebase Firestore stores and syncs chat messages in real
-                time. The program enables users to join chat groups, send and
-                receive instant messages, and see who is online. It displays
-                proficiency with modern web development tools and real-time
-                database integration.
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-            <div class="position-relative overflow-hidden mb-2">
-              <img
-                class="img-fluid rounded w-100"
-                src="img/portfolio-2.jpg"
-                alt=""
-              />
-              <div
-                class="portfolio-btn bg-primary d-flex align-items-center justify-content-center"
-              >
-                <a href="img/portfolio-2.jpg" data-lightbox="portfolio">
-                  <i class="fa fa-plus text-white" style="font-size: 60px"></i>
-                </a>
-              </div>
-            </div>
-            <div class="portfolio-description bg-white p-3">
-              <h5>Basic Admin Dashboard</h5>
-              <p>
-                This web-based application, developed using the Laravel
-                framework, features an easy-to-use admin dashboard for managing
-                companies and employees. Administrators can log in and execute
-                CRUD (Create, Read, Update, and Delete) actions on corporate and
-                personnel data. The program provides effective data handling and
-                easy management of business information with secure
-                authentication, dynamic forms, and responsive design.
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-            <div class="position-relative overflow-hidden mb-2">
-              <img
-                class="img-fluid rounded w-100"
-                src="img/portfolio-3.jpg"
-                alt=""
-              />
-              <div
-                class="portfolio-btn bg-primary d-flex align-items-center justify-content-center"
-              >
-                <a href="img/portfolio-3.jpg" data-lightbox="portfolio">
-                  <i class="fa fa-plus text-white" style="font-size: 60px"></i>
-                </a>
-              </div>
-            </div>
-            <div class="portfolio-description bg-white p-3">
-              <h5>Web-Based System</h5>
-              <p>
-                A web-based solution that uses PHP and MySQL to speed record
-                storage and retrieval. This digital system replaced old manual
-                record-keeping, allowing users to rapidly and easily search for
-                specific information. The system's major goal is to improve
-                efficiency and accessibility when managing data.
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-            <div class="position-relative overflow-hidden mb-2">
-              <video class="img-fluid rounded w-100" controls>
-                <source src="img/mcdo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div
-                class="portfolio-btn bg-primary d-flex align-items-center justify-content-center"
-              >
-                <a href="img/mcdo.mp4" target="_blank">
-                  <i class="fa fa-play text-white" style="font-size: 60px"></i>
-                </a>
-              </div>
-            </div>
-            <div class="portfolio-description bg-white p-3">
-              <h5>McDonald's Inspired Point of Sale (POS) System</h5>
-              <p>
-                This simple Point of Sale (POS) system allows users to order
-                items, delete or update their orders, and proceed to checkout.
-                At checkout, users can add the amount they are paying, ensuring
-                a smooth and efficient transaction process. This system is
-                inspired by the functionality of McDonald's POS systems,
-                offering a user-friendly interface for managing orders and
-                payments.
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-            <div class="position-relative overflow-hidden mb-2">
-              <img
-                class="img-fluid rounded w-100"
-                src="img/portfolio-5.jpg"
-                alt=""
-              />
-              <div
-                class="portfolio-btn bg-primary d-flex align-items-center justify-content-center"
-              >
-                <a href="img/portfolio-5.jpg" data-lightbox="portfolio">
-                  <i class="fa fa-plus text-white" style="font-size: 60px"></i>
-                </a>
-              </div>
-            </div>
-            <div class="portfolio-description bg-white p-3">
-              <h5>Interactive Arithmetic Challenge</h5>
-              <p>
-                This interactive game presents players with two random numbers
-                and asks them to determine whether the arithmetic expression is
-                correct or not. As players answer, the game keeps a record of
-                all their responses, indicating whether each answer was correct.
-                After each submission, players can choose to solve another
-                expression or view a summary of their performance. The summary
-                includes a detailed list of all arithmetic expressions
-                attempted, categorized by type (e.g., subtraction 1/5, addition
-                0/0, multiplication 2/2, subtraction 1/1).
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
-            <div class="position-relative overflow-hidden mb-2">
-              <video class="img-fluid rounded w-100" controls>
-                <source src="img/lib.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div
-                class="portfolio-btn bg-primary d-flex align-items-center justify-content-center"
-              >
-                <a href="img/lib.mp4" target="_blank">
-                  <i class="fa fa-play text-white" style="font-size: 60px"></i>
-                </a>
-              </div>
-            </div>
-            <div class="portfolio-description bg-white p-3">
-              <h5>Book Management System</h5>
-              <p>
-                This simple book library application allows users to add new
-                books to the library and search for existing books. It provides
-                an easy-to-use interface for managing and retrieving book
-                information, making it convenient for users to keep track of
-                their book collection.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Portfolio End -->
+        // Show selected section
+        document.getElementById(sectionId).classList.add("active");
 
-    <!-- Scroll to Bottom -->
-    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+        // Update active nav link for desktop
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+        });
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-outline-dark px-0 back-to-top"
-      ><i class="fa fa-angle-double-up"></i
-    ></a>
+        // Update active nav link for mobile
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+        mobileNavLinks.forEach((link) => {
+          link.classList.remove("active");
+        });
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+        // Find and activate the clicked link
+        if (event.target.classList.contains("nav-link")) {
+          event.target.classList.add("active");
+        } else if (event.target.classList.contains("mobile-nav-link")) {
+          event.target.classList.add("active");
+        }
 
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+        // Close mobile dropdown
+        closeMobileNav();
+      }
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+      function toggleMobileNav() {
+        const dropdown = document.getElementById("mobileDropdown");
+        dropdown.classList.toggle("active");
+      }
+
+      function closeMobileNav() {
+        const dropdown = document.getElementById("mobileDropdown");
+        dropdown.classList.remove("active");
+      }
+
+      // Close mobile dropdown when clicking outside
+      document.addEventListener("click", function (event) {
+        const dropdown = document.getElementById("mobileDropdown");
+        const toggle = document.querySelector(".mobile-nav-toggle");
+        const header = document.querySelector(".mobile-header");
+
+        if (window.innerWidth <= 768 && !header.contains(event.target)) {
+          closeMobileNav();
+        }
+      });
+
+      // Handle window resize
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          closeMobileNav();
+        }
+      });
+
+      // Prevent dropdown from closing when clicking inside it
+      document
+        .getElementById("mobileDropdown")
+        .addEventListener("click", function (event) {
+          event.stopPropagation();
+        });
+    </script>
   </body>
 </html>
